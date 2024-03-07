@@ -1,12 +1,14 @@
 from piccolo_conf import *  # noqa
 
+from decouple import config
+
 
 DB = PostgresEngine(
     config={
-        "database": "piccolo_project_test",
-        "user": "murtazo",
-        "password": "murtazo#1280",
-        "host": "localhost",
-        "port": 5432,
+        "database": config("DB_NAME"),
+        "user": config("DB_USER"),
+        "password": config("DB_PASSWORD"),
+        "host": config("DB_HOST"),
+        "port": config("DB_PORT"),
     }
 )
